@@ -35,7 +35,7 @@ void loop() {
 
 1.6.4 Pertanyaan Praktikum:
 1. Gambarkan rangkaian schematic 5 LED running yang digunakan pada percobaan!
-- 
+- <img width="1023" height="796" alt="Screenshot (1126)" src="https://github.com/user-attachments/assets/84c6b841-74c9-4651-927d-b2613c1c7d6d" />
 2. Jelaskan bagaimana program membuat efek LED berjalan dari kiri ke kanan!
 - Efek LED berjalan dari kiri ke kanan dihasilkan melalui penggunaan struktur perulangan for yang melakukan inkrementasi pada variabel pin. Program memulai perulangan dari pin terendah, kemudian secara bertahap berpindah ke pin yang lebih tinggi. Pada setiap iterasi, LED akan dinyalakan, diberikan jeda waktu, lalu dimatikan sebelum berpindah ke pin berikutnya, sehingga menghasilkan efek pergerakan dari kiri ke kanan.
 3. Jelaskan bagaimana program membuat LED kembali dari kanan ke kiri!
