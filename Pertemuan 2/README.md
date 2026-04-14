@@ -1,6 +1,6 @@
 2.5.4 Pertanyaan Praktikum:
 1. Gambarkan rangkaian schematic yang digunakan pada percobaan!
-- 
+- <img width="903" height="600" alt="skematik_seven_segment" src="https://github.com/user-attachments/assets/202d6b25-7e19-46c3-9c76-e31a0fa80d7e" />
 2. Apa yang terjadi jika nilai num lebih dari 15?
 - Jika nilai num lebih dari 15, maka program akan mencoba mengakses indeks array digitPattern yang tidak tersedia. Hal ini dapat menyebabkan tampilan 7-segment menjadi tidak sesuai (acak) atau bahkan berpotensi menimbulkan error karena terjadi akses data di luar batas array (out of bounds).
 3. Apakah program ini menggunakan common cathode atau common anode? Jelaskan alasannya!
@@ -61,7 +61,7 @@ void loop() {
 
 2.6.4 Pertanyaan Praktikum:
 1. Gambarkan rangkaian schematic yang digunakan pada percobaan!
-- 
+- <img width="1144" height="760" alt="skematik_push_button" src="https://github.com/user-attachments/assets/7d68f2ca-e7e2-4b0c-baef-070fbeaa82de" />
 2. Mengapa pada push button digunakan mode INPUT_PULLUP pada Arduino Uno? Apa keuntungannya dibandingkan rangkaian biasa?
 - Mode INPUT_PULLUP digunakan pada push button agar Arduino mengaktifkan resistor pull-up internal, sehingga pin input memiliki kondisi default HIGH saat tombol tidak ditekan dan berubah menjadi LOW saat tombol ditekan. Keuntungan penggunaan metode ini adalah tidak memerlukan resistor eksternal, rangkaian menjadi lebih sederhana, serta mengurangi risiko kondisi floating yang dapat menyebabkan pembacaan input tidak stabil atau noise.
 3. Jika salah satu LED segmen tidak menyala, apa saja kemungkinan penyebabnya dari sisi hardware maupun software?
