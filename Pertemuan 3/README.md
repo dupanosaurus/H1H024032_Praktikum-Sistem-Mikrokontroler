@@ -121,7 +121,7 @@ void loop() {
 
 4. Lengkapi table berikut berdasarkan pengamatan pada Serial Monitor!
 
-| ADC | Volt(V) | Persen(%) |
+| ADC | Volt (V) | Persen (%) |
 | --- | --- | --- |
 | 1 |	0.0	| 0 |
 | 21	| 0.10	| 2 |
