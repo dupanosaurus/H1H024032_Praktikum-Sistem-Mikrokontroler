@@ -29,7 +29,7 @@ void loop() {
   val = analogRead(potensioPin); // Membaca tegangan dari pin A0
 
   // ===================== KONVERSI DATA =====================
-  // Ubah nilai ADC menjadi sudut servo (0–180 derajat)
+  // Ubah nilai ADC menjadi sudut servo (30–150 derajat)
   pos = map(val,
              0,    // nilai minimum ADC
              1023, // nilai maksimum ADC (resolusi 10-bit Arduino standar)
