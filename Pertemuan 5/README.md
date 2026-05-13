@@ -88,9 +88,49 @@ Pertanyaan Praktikum Percobaan 5B
 - Program ini memiliki potensi race condition yang sangat kecil karena komunikasi data antar task dilakukan menggunakan queue FreeRTOS. Queue berfungsi sebagai mekanisme sinkronisasi sehingga data dikirim dan diterima secara teratur tanpa diakses bersamaan oleh dua task. Dengan demikian, konflik akses data dapat dihindari dan pertukaran data antar task menjadi lebih aman.
 3. Modifikasilah program dengan menggunakan sensor DHT sesungguhnya sehingga informasi yang ditampilkan dinamis. Bagaimana hasilnya? Jelaskan program pada file README.md.
 
-Link modifikasi: 
-foto hasil modifikasi
+Link modifikasi: https://wokwi.com/projects/463836179959802881
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/25a50348-2aef-4546-8dae-7ef27050673f" />
 
 ```cpp
+#include <DHT.h> // Library sensor DHT
 
+#define DHTPIN 2 // Pin data sensor di D2
+#define DHTTYPE DHT22 // Tipe sensor DHT22
+
+DHT dht(DHTPIN, DHTTYPE); // Membuat objek sensor
+
+// Variabel pengganti Scheduler RTOS
+unsigned long waktuSebelumnya = 0; // Menyimpan waktu sebelumnya
+const long jedaWaktu = 2000; // Interval pembacaan 2 detik
+
+void setup() {
+  Serial.begin(9600); // Memulai Serial Monitor
+  dht.begin(); // Mengaktifkan sensor DHT
+  Serial.println("Sistem Mulai Membaca Sensor...");
+}
+
+void loop() {
+
+  unsigned long waktuSekarang = millis(); // Membaca waktu saat ini
+
+  // Mengecek apakah sudah lewat 2 detik
+  if (waktuSekarang - waktuSebelumnya >= jedaWaktu) {
+    waktuSebelumnya = waktuSekarang; // Update waktu terakhir
+    float t = dht.readTemperature(); // Membaca suhu
+    float h = dht.readHumidity(); // Membaca kelembapan
+
+    // Mengecek apakah data valid
+    if (!isnan(t) && !isnan(h)) {
+      Serial.print("Temperature: ");
+      Serial.print(t); // Menampilkan suhu
+      Serial.println(" °C");
+      Serial.print("Humidity: ");
+      Serial.print(h); // Menampilkan kelembapan
+      Serial.println(" %");
+      Serial.println("-------------------");
+    } else {
+      Serial.println("Gagal membaca sensor DHT!");
+    }
+  }
+}
 ```
